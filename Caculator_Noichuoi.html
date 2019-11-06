@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Cacular</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        .content {
+            position: fixed;
+            top: 20%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            display: grid;
+            grid-template-columns: 50px 50px 50px 50px;
+            grid-template-rows: 50px 50px 50px 50px;
+        }
+        #result-text {
+            position: fixed;
+            width: 190px;
+            ;
+            top: 5%;
+            left: 15%;
+        }
+        .button {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="result-text">
+        <input type="text" style="height: 40px; width: 100%;" id="result">
+    </div>
+    <div class="content">
+        <button class="button" id="inputnumber_0" onclick="onClickNumber0()">0</button>
+        <button class="button" id="btn_Delete" onclick="onDeleteClick()">C</button>
+        <button class="button" id="btn_Sum" onclick="onSumClick()">+</button>
+        <button class="button" id="btn_Minus" onclick="onMinusClick()">-</button>
+        <button class="button" id="inputnumber_1" onclick="onClickNumber1()">1</button>
+        <button class="button" id="inputnumber_2" onclick="onClickNumber2()">2</button>
+        <button class="button" id="inputnumber_3" onclick="onClickNumber3()">3</button>
+        <button class="button" id="btn_Multiply" onclick="onMultiplyClick()">*</button>
+        <button class="button" id="inputnumber_4" onclick="onClickNumber4()">4</button>
+        <button class="button" id="inputnumber_5" onclick="onClickNumber5()">5</button>
+        <button class="button" id="inputnumber_6" onclick="onClickNumber6()">6</button>
+        <button class="button" id="btn_Devide" onclick="onDevideClick()">/</button>
+        <button class="button" id="inputnumber_7" onclick="onClickNumber7()">7</button>
+        <button class="button" id="inputnumber_8" onclick="onClickNumber8()">8</button>
+        <button class="button" id="inputnumber_9" onclick="onClickNumber9()">9</button>
+        <button class="button" id="btn_Result" onclick="onResultClick()">=</button>
+
+    </div>
+
+
+    <script>
+        // Hiển thị số khi Click vào
+        function onClickNumber1() {
+            document.getElementById("result").value += "1";
+        }
+        function onClickNumber2() {
+            document.getElementById("result").value += "2";
+        }
+        function onClickNumber3() {
+            document.getElementById("result").value += "3";
+        }
+        function onClickNumber4() {
+            document.getElementById("result").value += "4";
+        }
+        function onClickNumber5() {
+            document.getElementById("result").value += "5";
+        }
+        function onClickNumber6() {
+            document.getElementById("result").value += "6";
+        }
+        function onClickNumber7() {
+            document.getElementById("result").value += "7";
+        }
+        function onClickNumber8() {
+            document.getElementById("result").value += "8";
+        }
+        function onClickNumber9() {
+            document.getElementById("result").value += "9";
+        }
+        function onClickNumber0() {
+            document.getElementById("result").value += "0";
+        }
+        // Hiển thị phép tính toán
+        function onSumClick() {
+            document.getElementById("result").value += "+";
+        }
+        function onMinusClick() {
+            document.getElementById("result").value += "-";
+        }
+        function onMultiplyClick() {
+            document.getElementById("result").value += "*";
+        }
+        function onDevideClick() {
+            document.getElementById("result").value += "/";
+        }
+        // Sự kiện tính toán
+        function onResultClick() {
+            let str = document.getElementById("result").value;
+            let arr = str.split("+");
+            let result = parseInt(arr[0]);
+            for (var i = 1; i < arr.length; i++) {
+                result += parseInt(arr[i]);
+            }
+            document.getElementById("result").value = result;
+        }
+        function onDeleteClick(){
+            document.getElementById("result").value = "";
+        }
+    </script>
+</body>
+
+</html>
